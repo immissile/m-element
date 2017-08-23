@@ -22,8 +22,17 @@
             let $el = this.$parent.$refs.tabs[index];
             if (!$el) { return false; }
 
+            let $tab = null;
+            if ($el.currentStyle) {
+              $tab = $el.currentStyle;
+            } else {
+              $tab = document.defaultView.getComputedStyle($el, null);
+            }
+            let $margin = window.parseInt($tab.marginRight);
+
             if (!tab.active) {
-              offset += $el.clientWidth;
+              // offset += $el.clientWidth;
+              offset += $el.clientWidth + $margin;
               return true;
             } else {
               tabWidth = $el.clientWidth;
