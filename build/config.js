@@ -10,21 +10,22 @@ var transitionList = fs.readdirSync(path.resolve(__dirname, '../src/transitions'
 var externals = {};
 
 Object.keys(Components).forEach(function(key) {
-  externals[`element-ui/packages/${key}`] = `element-ui/lib/${key}`;
+  console.log(1111111, key)
+  externals[`nb-element/packages/${key}`] = `element-ui/lib/${key}`;
 });
 
-externals['element-ui/src/locale'] = 'element-ui/lib/locale';
+externals['nb-element/src/locale'] = 'element-ui/lib/locale';
 utilsList.forEach(function(file) {
   file = path.basename(file, '.js');
-  externals[`element-ui/src/utils/${file}`] = `element-ui/lib/utils/${file}`;
+  externals[`nb-element/src/utils/${file}`] = `element-ui/lib/utils/${file}`;
 });
 mixinsList.forEach(function(file) {
   file = path.basename(file, '.js');
-  externals[`element-ui/src/mixins/${file}`] = `element-ui/lib/mixins/${file}`;
+  externals[`nb-element/src/mixins/${file}`] = `element-ui/lib/mixins/${file}`;
 });
 transitionList.forEach(function(file) {
   file = path.basename(file, '.js');
-  externals[`element-ui/src/transitions/${file}`] = `element-ui/lib/transitions/${file}`;
+  externals[`nb-element/src/transitions/${file}`] = `element-ui/lib/transitions/${file}`;
 });
 
 externals = [Object.assign({
