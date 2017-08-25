@@ -121,6 +121,9 @@
 
     computed: {
       iconClass() {
+        if (this.arrowIcon !== '') {
+          return this.arrowIcon;
+        }
         let criteria = this.clearable &&
           !this.disabled &&
           this.inputHovering &&
@@ -199,6 +202,10 @@
       valueKey: {
         type: String,
         default: 'value'
+      },
+      arrowIcon: {
+        type: String,
+        default: ''
       }
     },
 

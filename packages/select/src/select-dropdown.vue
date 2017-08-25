@@ -9,6 +9,7 @@
 
 <script type="text/babel">
   import Popper from 'element-ui/src/utils/vue-popper';
+  import {getStyle} from 'element-ui/src/utils/dom';
 
   export default {
     name: 'ElSelectDropdown',
@@ -50,7 +51,10 @@
 
     watch: {
       '$parent.inputWidth'() {
-        this.minWidth = this.$parent.$el.getBoundingClientRect().width + 'px';
+        let $el = this.$parent.$el;
+        let margin = parseFloat(getStyle($el, 'marginLeft')) + parseFloat(getStyle($el, 'marginRight'));
+        let padding = parseFloat(getStyle($el, 'paddingLeft')) + parseFloat(getStyle($el, 'paddingRight'));
+        this.minWidth = ($el.getBoundingClientRect().width - margin - padding) + 'px';
       }
     },
 
