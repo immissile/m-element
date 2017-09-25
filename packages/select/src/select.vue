@@ -172,7 +172,6 @@
     props: {
       name: String,
       value: {
-        type: [String, Number, Boolean, Array, Object],
         required: true
       },
       size: String,

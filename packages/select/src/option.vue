@@ -28,7 +28,6 @@
 
     props: {
       value: {
-        type: [String, Number, Boolean, Array, Object],
         required: true
       },
       label: [String, Number],
