@@ -172,6 +172,7 @@
     props: {
       name: String,
       value: {
+        type: [String, Number, Boolean],
         required: true
       },
       size: String,
